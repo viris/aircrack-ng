@@ -51,7 +51,7 @@
 
 #serial 1
 
-m4_define([DUMPMACHINE], m4_esyscmd([gcc -dumpmachine || echo]))
+m4_define([DUMPMACHINE], m4_esyscmd([gcc -dumpmachine 2>/dev/null || echo]))
 m4_define([DEFAULT_STATIC_LIB_SEARCH_PATHS], [
 	/opt/lib/DUMPMACHINE
 	/opt/lib
