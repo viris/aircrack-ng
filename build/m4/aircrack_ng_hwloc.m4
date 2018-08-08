@@ -66,4 +66,5 @@ AS_IF([test "x$enable_hwloc" != "xno"], [
 ])
 
 AM_CONDITIONAL([HAVE_HWLOC], [test "$HWLOC_FOUND" = yes])
+AM_CONDITIONAL([STATIC_HWLOC], [test "$static_hwloc" != no])
 ])

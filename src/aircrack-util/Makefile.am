@@ -85,10 +85,14 @@ endif
 if HAVE_HWLOC
 libaircrack_util_la_CFLAGS += $(HWLOC_CFLAGS)
 if !CYGWIN
+if !STATIC_HWLOC
 libaircrack_util_la_LIBADD = $(HWLOC_LIBS)
 endif
+endif
 if CYGWIN
+if !STATIC_HWLOC
 libaircrack_util_la_LIBADD += $(HWLOC_LIBS)
+endif
 endif
 endif
 
