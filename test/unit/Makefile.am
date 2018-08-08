@@ -92,9 +92,16 @@ test_wpapsk_LDADD   = $(LIBAIRCRACK_CRYPTO_LIBS) \
 					  $(LIBAIRCRACK_UTIL_LIBS) \
 					  $(COMMON_LDADD)
 
-test_wpapsk_cmac_SOURCES = test-wpapsk-cmac.c $(LIBAIRCRACK_UTIL)
-test_wpapsk_cmac_CFLAGS = "-DLIBAIRCRACK_CRYPTO_PATH=\"$(LIBAIRCRACK_CRYPTO_PATH)\"" "-DABS_TOP_SRCDIR=\"$(abs_top_srcdir)\"" "-DABS_TOP_BUILDDIR=\"$(abs_top_builddir)\"" "-DLIBDIR=\"$(libdir)\"" $(CMOCKA_CFLAGS)
-test_wpapsk_cmac_LDADD = $(CMOCKA_LIBS) $(LIBAIRCRACK_UTIL_LIBS)
+test_wpapsk_cmac_SOURCES = test-wpapsk-cmac.c \
+						   $(LIBAIRCRACK_UTIL)
+test_wpapsk_cmac_CFLAGS = "-DLIBAIRCRACK_CRYPTO_PATH=\"$(LIBAIRCRACK_CRYPTO_PATH)\"" \
+						  "-DABS_TOP_SRCDIR=\"$(abs_top_srcdir)\"" \
+						  "-DABS_TOP_BUILDDIR=\"$(abs_top_builddir)\"" \
+						  "-DLIBDIR=\"$(libdir)\"" \
+						  $(CMOCKA_CFLAGS)
+test_wpapsk_cmac_LDFLAGS = -rdynamic
+test_wpapsk_cmac_LDADD   = $(LIBAIRCRACK_UTIL_LIBS) \
+						   $(COMMON_LDADD)
 
 TESTS = test-calc-one-pmk test-string-has-suffix
 
