@@ -95,5 +95,5 @@ AC_SUBST(CRYPTO_LIBS)
 AC_SUBST(CRYPTO_LDFLAGS)
 
 AM_CONDITIONAL([LIBGCRYPT], [test "$CRYPTO_TYPE" = libgcrypt])
-AM_CONDITIONAL([STATIC_CRYPTO], [test "$static_crypto" != xno])
+AM_CONDITIONAL([STATIC_CRYPTO], [test "$static_crypto" != no])
 ])
