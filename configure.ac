@@ -238,6 +238,7 @@ ${PACKAGE} ${VERSION}
   Target Environment:
     OS:                          ${OS}
     ASAN:                        ${asan}
+    CPU L1 cache-line size:      ${CACHELINE_SIZE}
 
   Crypto Libraries:
     Gcrypt:                      ${GCRYPT_LIBS}
@@ -260,6 +261,7 @@ ${PACKAGE} ${VERSION}
     Zlib:                        ${HAVE_ZLIB}
 
   Features:
+    CMAC Support:                ${HAVE_CMAC}
     Experimental Extra Scripts:  ${EXT_SCRIPTS}
     Experimental Features:       ${EXPERIMENTAL}
 
