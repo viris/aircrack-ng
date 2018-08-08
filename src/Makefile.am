@@ -257,15 +257,22 @@ airventriloquist_ng_LDADD = $(COMMON_LDADD) $(LIBAIRCRACK_OSDEP_LIBS) $(LIBAC_LI
 
 libaclib_la_SOURCES = $(SRC_ACLIB)
 libaclib_la_CFLAGS = $(COMMON_CFLAGS) $(LIBAIRCRACK_UTIL_CFLAGS)
-libaclib_la_LIBADD = $(COMMON_LDADD) $(LIBAIRCRACK_UTIL_LIBS)
+libaclib_la_LIBADD = $(LIBAIRCRACK_UTIL_LIBS)
+if !STATIC_CRYPTO
+libaclib_la_LIBADD += $(LIBAIRCRACK_UTIL_LIBS)
+endif
 
 libcow_la_SOURCES = $(SRC_COW)
 libcow_la_CFLAGS = $(COMMON_CFLAGS) $(LIBCOW_CFLAGS)
+if !STATIC_CRYPTO
 libcow_la_LIBADD = $(COMMON_LDADD)
+endif
 
 libptw_la_SOURCES = $(SRC_PTW)
 libptw_la_CFLAGS = $(COMMON_CFLAGS)
+if !STATIC_CRYPTO
 libptw_la_LIBADD = $(COMMON_LDADD)
+endif
 
 noinst_LTLIBRARIES = libaclib.la libptw.la libcow.la
 
